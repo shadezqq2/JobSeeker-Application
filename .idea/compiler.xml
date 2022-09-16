@@ -6,7 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="JobSeeker Application" />
+        <module name="jobseeker-application-app" />
+        <module name="jobseeker-application-domain" />
       </profile>
     </annotationProcessing>
   </component>

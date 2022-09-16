@@ -1,0 +1,33 @@
+package com.jobseeker.app.controller;
+
+import com.jobseeker.app.service.JobSeekerFacade;
+import com.jobseeker.domain.UserEntity;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/login")
+public class LoginController {
+
+    @Autowired
+    JobSeekerFacade jobSeekerFacade;
+
+    @GetMapping
+    public String loginPage(Model model) {
+        model.addAttribute("user", new UserEntity());
+        return "login";
+    }
+
+    @PostMapping
+    public String successfulLogin(UserEntity user) {
+        if (jobSeekerFacade.authenticateUser(user)) {
+            return "redirect:search";
+        } else {
+            return "redirect:login";
+        }
+    }
+}
