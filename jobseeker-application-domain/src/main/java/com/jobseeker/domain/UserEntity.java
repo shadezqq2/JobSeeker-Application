@@ -2,7 +2,7 @@ package com.jobseeker.domain;
 
 import javax.persistence.*;
 
-@Entity(name = "user")
+@Entity
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
